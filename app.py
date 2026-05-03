@@ -154,15 +154,14 @@ if st.button("Analyze System"):
         st.write("Reason: System overheating beyond safe limit.")
         st.write("Action: Immediate shutdown required.")
 
-    # ✅ ALWAYS DEFINE PROMPT
-      prompt = f"""
-       Voltage = {voltage}V
-       Current = {current}A
-       Temperature = {temp}°C
+        # ✅ ALWAYS DEFINE PROMPT
+    prompt = f"""
+    Voltage = {voltage}V
+    Current = {current}A
+    Temperature = {temp}°C
 
-       Provide professional electrical safety feedback and recommendations.
-       """
-
+    Provide professional electrical safety feedback and recommendations.
+    """
     try:
 
         if "ai_feedback" not in st.session_state:
