@@ -161,11 +161,9 @@ Current = {current}A
 Temperature = {temp}°C
 Provide professional electrical safety feedback and recommendations.
 """
-
      try:
-
         if
-         "ai_feedback" not in st.session_state:
+          "ai_feedback" not in st.session_state:
 
             response = model.generate_content(prompt)
 
