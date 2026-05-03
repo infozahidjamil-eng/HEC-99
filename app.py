@@ -7,7 +7,7 @@ from io import BytesIO
 st.set_page_config(page_title="VoltGuard AI", layout="wide") 
 API_KEY = st.secrets["API_KEY"]
 genai.configure(api_key=API_KEY)
-model = genai.GenerativeModel("models/gemini-flash-latest")
+model = genai.GenerativeModel("models/gemini-2.0-flash-lite")
 st.markdown(
     """
     <style>
@@ -163,8 +163,14 @@ Provide professional electrical safety feedback and recommendations.
 """
 
     try:
-        response = model.generate_content(prompt)
-        st.subheader("🤖 AI-Based Feedback")
-        st.write(response.text)
+       if "ai_feedback" not in st.session_state:
+
+    response = model.generate_content(prompt)
+
+    st.session_state.ai_feedback = response.text
+
+st.subheader("🤖 AI-Based Feedback")
+
+st.write(st.session_state.ai_feedback)
     except Exception as e:
         st.error(f"AI Error: {e}")
