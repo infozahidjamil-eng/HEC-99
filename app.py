@@ -7,7 +7,7 @@ from io import BytesIO
 st.set_page_config(page_title="VoltGuard AI", layout="wide") 
 API_KEY = st.secrets["API_KEY"]
 genai.configure(api_key=API_KEY)
-model = genai.GenerativeModel("models/gemini-2.0-flash-lite")
+model = genai.GenerativeModel("models/gemini-flash-latest")
 st.markdown(
     """
     <style>
