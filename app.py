@@ -162,7 +162,7 @@ Temperature = {temp}°C
 Provide professional electrical safety feedback and recommendations.
 """
 
-    try:
+     try:
 
         if "ai_feedback" not in st.session_state:
 
@@ -174,27 +174,8 @@ Provide professional electrical safety feedback and recommendations.
 
         st.write(st.session_state.ai_feedback)
 
-    except Exception as e:
+    except Exception:
 
         st.subheader("🤖 AI-Based Feedback")
 
-        fallback_feedback = """
-⚡ AI Safety Analysis:
-
-• Voltage fluctuations indicate possible instability in the electrical supply.
-
-• Current levels should be monitored to avoid overload conditions.
-
-• Elevated temperature may reduce equipment lifespan and increase safety risks.
-
-• Recommended Actions:
-    - Inspect power connections
-    - Reduce excessive load
-    - Improve cooling and ventilation
-    - Perform preventive maintenance
-
-System generated intelligent safety recommendations successfully.
-"""
-
-        st.warning(fallback_feedback)
-        
+        st.warning("⚠️ Gemini AI service is temporarily busy. Please try again after a short time.")
