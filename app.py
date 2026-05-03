@@ -155,13 +155,13 @@ if st.button("Analyze System"):
         st.write("Action: Immediate shutdown required.")
 
     # ✅ ALWAYS DEFINE PROMPT
-   prompt = f"""
-    Voltage = {voltage}V
-    Current = {current}A
-    Temperature = {temp}°C
+      prompt = f"""
+       Voltage = {voltage}V
+       Current = {current}A
+       Temperature = {temp}°C
 
-    Provide professional electrical safety feedback and recommendations.
-    """
+       Provide professional electrical safety feedback and recommendations.
+       """
 
     try:
 
