@@ -154,7 +154,7 @@ if st.button("Analyze System"):
         st.write("Reason: System overheating beyond safe limit.")
         st.write("Action: Immediate shutdown required.")
 
-        # ✅ ALWAYS DEFINE PROMPT
+            # ✅ ALWAYS DEFINE PROMPT
     prompt = f"""
     Voltage = {voltage}V
     Current = {current}A
@@ -162,20 +162,16 @@ if st.button("Analyze System"):
 
     Provide professional electrical safety feedback and recommendations.
     """
+
     try:
 
-        if "ai_feedback" not in st.session_state:
-
-            response = model.generate_content(prompt)
-
-            st.session_state.ai_feedback = response.text
+        response = model.generate_content(prompt)
 
         st.subheader("🤖 AI-Based Feedback")
 
-        st.write(st.session_state.ai_feedback)
+        st.write(response.text)
 
-    except Exception:
+    except Exception as e:
 
-        st.subheader("🤖 AI-Based Feedback")
-
-        st.warning("⚠️ Gemini AI service is temporarily busy. Please try again after a short time.")
+        st.error(f"AI Error: {e}")
+        st.write("Action: Immediate shutdown required.")
