@@ -155,23 +155,25 @@ if st.button("Analyze System"):
         st.write("Action: Immediate shutdown required.")
 
     # ✅ ALWAYS DEFINE PROMPT
-    prompt = f"""
-Voltage = {voltage}V
-Current = {current}A
-Temperature = {temp}°C
-Provide professional electrical safety feedback and recommendations.
-"""
-     try:
-        if
-          "ai_feedback" not in st.session_state:
+   prompt = f"""
+    Voltage = {voltage}V
+    Current = {current}A
+    Temperature = {temp}°C
+
+    Provide professional electrical safety feedback and recommendations.
+    """
+
+    try:
+
+        if "ai_feedback" not in st.session_state:
 
             response = model.generate_content(prompt)
 
-             st.session_state.ai_feedback = response.text
+            st.session_state.ai_feedback = response.text
 
-             st.subheader("🤖 AI-Based Feedback")
+        st.subheader("🤖 AI-Based Feedback")
 
-              st.write(st.session_state.ai_feedback)
+        st.write(st.session_state.ai_feedback)
 
     except Exception:
 
