@@ -164,15 +164,16 @@ Provide professional electrical safety feedback and recommendations.
 
      try:
 
-        if "ai_feedback" not in st.session_state:
+        if
+         "ai_feedback" not in st.session_state:
 
             response = model.generate_content(prompt)
 
-            st.session_state.ai_feedback = response.text
+             st.session_state.ai_feedback = response.text
 
-        st.subheader("🤖 AI-Based Feedback")
+             st.subheader("🤖 AI-Based Feedback")
 
-        st.write(st.session_state.ai_feedback)
+              st.write(st.session_state.ai_feedback)
 
     except Exception:
 
